@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álvaro Jose Julio Beltran - CV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0ea5e9;
+      --secondary-color: #3b82f6;
+      --accent-color: #2dd4bf;
+      --dark-color: #1e293b;
+      --light-color: #f1f5f9;
+      --border-color: #e2e8f0;
+      --text-color: #334155;
+      --light-text: #64748b;
+      --background: #ffffff;
+      --header-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      --skill-pill-bg: #f0f9ff;
+      --tech-bg: #f0fdfa;
+      --achievement-bg: #ecfdf5;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .cv-container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 40px 25px;
+    }
+    
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
+      font-weight: 300;
+      color: white;
+      border: 5px solid rgba(255,255,255,0.2);
+    }
+    
+    .contact-info {
+      margin-bottom: 30px;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .contact-icon {
+      margin-right: 12px;
+      width: 24px;
+      text-align: center;
+      color: var(--accent-color);
+    }
+    
+    .skills-section {
+      margin-bottom: 30px;
+    }
+    
+    .skills-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+    }
+    
+    .skill-category {
+      margin-bottom: 20px;
+    }
+    
+    .skill-category h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .skill-pill {
+      background-color: rgba(255,255,255,0.1);
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: white;
+    }
+    
+    .languages-section {
+      margin-bottom: 30px;
+    }
+    
+    .languages-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+    }
+    
+    .language-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    
+    .language-level {
+      color: var(--accent-color);
+      font-style: italic;
+    }
+    
+    /* Main Content */
+    .main-content {
+      padding: 40px;
+      background-color: white;
+    }
+    
+    .header {
+      margin-bottom: 30px;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    
+    .header h2 {
+      font-size: 1.2rem;
+      color: var(--light-text);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .header .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .tag {
+      background-color: var(--skill-pill-bg);
+      color: var(--primary-color);
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .professional-summary {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: var(--light-color);
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .professional-summary h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark-color);
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-icon {
+      margin-right: 12px;
+      color: var(--primary-color);
+    }
+    
+    .experience-section {
+      margin-bottom: 30px;
+    }
+    
+    .job {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .job:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background-color: var(--primary-color);
+      opacity: 0.3;
+    }
+    
+    .job:last-child {
+      margin-bottom: 0;
+    }
+    
+    .job-header {
+      margin-bottom: 15px;
+      position: relative;
+    }
+    
+    .job-header:before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      height: 12px;
+      width: 12px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px var(--primary-color);
+    }
+    
+    .job-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark-color);
+      margin-bottom: 5px;
+    }
+    
+    .job-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+      gap: 15px;
+    }
+    
+    .company {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    
+    .job-date {
+      color: var(--light-text);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    
+    .job-description ul {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+    
+    .job-description li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+    
+    .job-description li:before {
+      content: "▹";
+      color: var(--secondary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    .achievement {
+      background-color: var(--achievement-bg);
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 10px;
+      font-weight: 500;
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .achievement:before {
+      content: "★";
+      margin-right: 10px;
+      color: var(--secondary-color);
+    }
+    
+    .tech-stack {
+      margin-top: 15px;
+      background-color: var(--tech-bg);
+      border-radius: 6px;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+    }
+    
+    .tech-stack strong {
+      color: var(--dark-color);
+      margin-right: 5px;
+    }
+    
+    .additional-roles {
+      margin-bottom: 30px;
+    }
+    
+    .additional-roles ul {
+      list-style-type: none;
+    }
+    
+    .additional-roles li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .additional-roles li:before {
+      content: "•";
+      color: var(--secondary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    .company-name {
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+    
+    .role-date {
+      color: var(--light-text);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    
+    /* Soft Skills Section */
+    .soft-skills-section {
+      margin-bottom: 30px;
+    }
+    
+    .soft-skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .soft-skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--light-color);
+      padding: 10px 15px;
+      border-radius: 8px;
+      flex: 1 1 calc(50% - 15px);
+      min-width: 200px;
+    }
+    
+    .soft-skill-icon {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    
+    /* QR Code */
+    .qr-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 30px;
+      gap: 15px;
+    }
+    
+    .qr-code {
+      width: 80px;
+      height: 80px;
+      background-color: var(--light-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      text-align: center;
+      color: var(--light-text);
+    }
+    
+    .qr-text {
+      font-size: 0.9rem;
+      color: var(--light-text);
+      max-width: 150px;
+    }
+    
+    /* About Me Section */
+    .about-me-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: var(--light-color);
+      border-radius: 8px;
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    .about-me-section h2 {
+      font-size: 1.5rem;
+      color: var(--dark-color);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .about-me-section p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .about-me-section p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Login Screen */
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .login-header {
+      margin-bottom: 30px;
+    }
+    
+    .login-header h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    .login-header p {
+      color: var(--light-text);
+      font-size: 1rem;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .login-form input {
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    
+    .login-form input:focus {
+      border-color: var(--primary-color);
+    }
+    
+    .login-form button {
+      padding: 12px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .login-form button:hover {
+      background: var(--secondary-color);
+    }
+    
+    .error-message {
+      color: #ef4444;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--light-text);
+      font-size: 0.8rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        padding: 30px 20px;
+      }
+      
+      .soft-skill-item {
+        flex: 1 1 100%;
+      }
+      
+      .login-container {
+        margin: 50px auto;
+        padding: 20px;
+      }
+    }
+    
+    /* Hide CV content initially */
+    #cv-content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="login-container">
+    <div class="login-header">
+      <h1>Welcome</h1>
+      <p>Please enter your access code to view the CV</p>
+    </div>
+    <div class="login-form">
+      <input type="password" id="access-code" placeholder="Enter your access code">
+      <button id="submit-code">Access CV</button>
+      <div id="error-message" class="error-message">Invalid access code or the code has expired.</div>
+    </div>
+    <div class="footer">
+      Protected CV of Álvaro Jose Julio Beltran
+    </div>
+  </div>
+  
+  <!-- CV Content -->
+  <div id="cv-content">
+    <div class="cv-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="profile-pic">AJ</div>
+        
+        <div class="contact-info">
+          <h3>CONTACT</h3>
+          <div class="contact-item">
+            <span class="contact-icon">✉</span>
+            <span>alvarodev@hotmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">☎</span>
+            <span>+57 319 374 5954</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🔗</span>
+            <span>linkedin.com/in/yourprofile</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <span>github.com/yourhandle</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Medellín, Colombia</span>
+          </div>
+        </div>
+        
+        <div class="skills-section">
+          <h3>TECHNICAL SKILLS</h3>
+          
+          <div class="skill-category">
+            <h4>Programming</h4>
+            <div class="skill-pills">
+              <div class="skill-pill">C#</div>
+              <div class="skill-pill">.NET 8</div>
+              <div class="skill-pill">.NET Core</div>
+              <div class="skill-pill">.NET Framework</div>
+              <div class="skill-pill">Node.js</div>
+              <div class="skill-pill">Angular</div>
+              <div class="skill-pill">FastEndpoints</div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Cloud Platforms</h4>
+            <div class="skill-pills">
+              <div class="skill-pill">Microsoft Azure</div>
+              <div class="skill-pill">AWS</div>
+              <div class="skill-pill">Red Hat OpenShift</div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Development Practices</h4>
+            <div class="skill-pills">
+              <div class="skill-pill">Agile (Scrum)</div>
+              <div class="skill-pill">TDD</div>
+              <div class="skill-pill">Microservices</div>
+              <div class="skill-pill">DDD</div>
+              <div class="skill-pill">Clean Architecture</div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Tools & Databases</h4>
+            <div class="skill-pills">
+              <div class="skill-pill">SQL Server</div>
+              <div class="skill-pill">Cosmos DB</div>
+              <div class="skill-pill">DynamoDB</div>
+              <div class="skill-pill">Docker</div>
+              <div class="skill-pill">Kubernetes (AKS)</div>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Version Control & CI/CD</h4>
+            <div class="skill-pills">
+              <div class="skill-pill">Git</div>
+              <div class="skill-pill">Azure DevOps</div>
+              <div class="skill-pill">GitHub</div>
+              <div class="skill-pill">Bitbucket</div>
+              <div class="skill-pill">Jira</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="languages-section">
+          <h3>LANGUAGES</h3>
+          <div class="language-item">
+            <span>English</span>
+            <span class="language-level">Professional Proficiency</span>
+          </div>
+          <div class="language-item">
+            <span>Spanish</span>
+            <span class="language-level">Native</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h1>ÁLVARO JOSE JULIO BELTRAN</h1>
+          <h2>Software Engineer & Technical Leader</h2>
+          <div class="tags">
+            <div class="tag">Backend Specialist</div>
+            <div class="tag">Cloud Expert</div>
+            <div class="tag">System Modernization</div>
+            <div class="tag">Microservices</div>
+            <div class="tag">Technical Leadership</div>
+          </div>
+        </div>
+        
+        <div class="about-me-section">
+          <h2>ABOUT ME</h2>
+          <p>As a passionate software engineer with roots in Colombia, I've built my career at the intersection of technical excellence and practical problem-solving. I currently live in Medellín, Colombia, with my wife and two children, who provide the foundation and motivation for everything I do professionally and personally.</p>
+          <p>My journey in technology began with a curiosity about how systems work and evolved into a dedication to building solutions that make a meaningful difference for businesses and their customers. Living in Medellín, a city that has transformed itself into a vibrant tech hub in Latin America, has given me unique perspectives on how technology can drive positive change.</p>
+          <p>I thrive in environments where innovation is valued, and complex challenges are the norm. Whether I'm architecting cloud-native applications, leading development teams, or modernizing legacy systems, I approach each project with the same philosophy: technology should solve real problems in elegant, maintainable ways.</p>
+          <p>When I'm not working, I enjoy spending quality time with my family, exploring Colombia's beautiful landscapes through hiking, and staying connected with the local tech community in Medellín.</p>
+        </div>
+        
+        <div class="professional-summary">
+          <h3>PROFESSIONAL SUMMARY</h3>
+          <p>Software Engineer with over 9 years of experience designing and delivering enterprise-grade cloud solutions across seven industries. Specialized in cloud-native architecture and legacy system modernization. Proven technical leader, driving measurable gains such as 40% faster processing and 60% improved system reliability. Recognized for backend expertise, strong cloud proficiency, and consistently delivering scalable, high-quality solutions that exceed client expectations.</p>
+        </div>
+        
+        <h2 class="section-title"><span class="section-icon">✧</span>PROFESSIONAL EXPERIENCE</h2>
+        
+        <div class="experience-section">
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">SOFTWARE SPECIALIST</div>
+              <div class="job-meta">
+                <div class="company">GBM</div>
+                <div class="job-date">October 2023 – Present</div>
+              </div>
+            </div>
+            <div class="job-description">
+              <ul>
+                <li>Architected and implemented large-scale cloud-native applications, including credit card payment capabilities and secure, high-performance email services with digital signature support.</li>
+                <li>Designed and delivered a real-time dashboard for visualizing security warnings and incidents across applications and infrastructure, enhancing monitoring and incident response capabilities.</li>
+                <li>Led project and software estimations, enabling accurate planning, resource allocation, and timely delivery of digital solutions.</li>
+                <li>Streamlined and optimized software development workflows, resulting in more efficient processes and consistent delivery of high-quality software.</li>
+                <li>Collaborated with cross-functional teams to ensure that architectural decisions met both business objectives and technical requirements.</li>
+              </ul>
+              <div class="achievement">Led the modernization of .NET 4.0 legacy, on-premise systems to cloud-native architecture on .NET 8, reducing delivery time by 70%.</div>
+              <div class="tech-stack">
+                <strong>Technologies:</strong> .NET Framework 4.8, .NET 7/8, SQL Server, SAP CDC, SendGrid, Sockets, SMTP, FastEndpoints, Azure Service Bus, Azure API Management (APIM), Docker, Istio, OpenShift, Grafana, OpenTelemetry.
+              </div>
+            </div>
+          </div>
+          
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">SENIOR .NET DEVELOPER</div>
+              <div class="job-meta">
+                <div class="company">Velozient</div>
+                <div class="job-date">March 2023 – October 2023</div>
+              </div>
+            </div>
+            <div class="job-description">
+              <ul>
+                <li>Developed two APIs from scratch using Clean Architecture, Microservices, and Domain-Driven Design (DDD) to enable centralized user access (SSO) across all company products.</li>
+                <li>Collaborated with the team to implement unit and integration tests, maintaining over 95% test coverage and ensuring high code quality.</li>
+                <li>Defined usage guidelines for core technologies such as .NET 7, FastEndpoints, and Kafka, ensuring consistent implementation across services.</li>
+                <li>Established and enforced coding standards and best practices, including naming conventions, architectural consistency, and error handling strategies.</li>
+                <li>Conducted code reviews to maintain code quality, promote best practices, and mentor junior developers on clean, maintainable design.</li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Technologies:</strong> .NET 7, SQL Server, Auth0, FastEndpoints, Kafka, Azure API Management (APIM), Docker.
+              </div>
+            </div>
+          </div>
+          
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">SENIOR .NET DEVELOPER</div>
+              <div class="job-meta">
+                <div class="company">QualIT</div>
+                <div class="job-date">December 2021 – December 2022</div>
+              </div>
+            </div>
+            <div class="job-description">
+              <ul>
+                <li>Planned, developed, and maintained web, desktop, and console applications tailored to client requirements.</li>
+                <li>Designed and configured cloud infrastructure and services in Microsoft Azure to support scalable, resilient solutions.</li>
+                <li>Migrated legacy applications from on-premise environments to cloud-based architectures, improving maintainability and performance.</li>
+                <li>Built APIs using Clean Architecture and Microservices patterns with .NET Core, .NET 6, Entity Framework Core, and SQL Server.</li>
+              </ul>
+              <div class="achievement">Implemented application monitoring and diagnostics to proactively identify and resolve issues, achieving a 70% reduction in production incidents.</div>
+              <div class="tech-stack">
+                <strong>Technologies:</strong> .NET 6, .NET Core, Entity Framework Core, SQL Server, Angular 12+, Microsoft Azure (App Services, Azure Monitor, Application Insights, ARM templates), REST APIs, Git, Azure DevOps, SalesForce, PhoneApi, BigQuery.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h2 class="section-title"><span class="section-icon">✧</span>SOFT SKILLS & COMPETENCIES</h2>
+        
+        <div class="soft-skills-section">
+          <div class="soft-skills-container">
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">👨‍💼</span>
+              <span>Leadership & Team Mentorship</span>
+            </div>
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">🗣️</span>
+              <span>Clear Communication & Stakeholder Engagement</span>
+            </div>
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">🧩</span>
+              <span>Problem-Solving Under Pressure</span>
+            </div>
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">🎯</span>
+              <span>Aligning Technical Solutions with Business Goals</span>
+            </div>
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">🤝</span>
+              <span>Promoting Collaboration & Continuous Improvement</span>
+            </div>
+            <div class="soft-skill-item">
+              <span class="soft-skill-icon">🚀</span>
+              <span>Self-Motivated Project Management</span>
+            </div>
+          </div>
+        </div>
+        
+        <h2 class="section-title"><span class="section-icon">✧</span>ADDITIONAL EXPERIENCE</h2>
+        
+        <div class="additional-roles">
+          <ul>
+            <li>
+              <span class="company-name">Senior Application Developer, Pragma S.A.</span>
+              <span class="role-date"> (May 2019 - September 2019)</span>
+            </li>
+            <li>
+              <span class="company-name">Mid Application Developer, GETCOM S.A.S</span>
+              <span class="role-date"> (August 2018 - May 2019)</span>
+            </li>
+            <li>
+              <span class="company-name">Software Engineering Analyst, MVM S.A.</span>
+              <span class="role-date"> (October 2015 – August 2018)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const accessCodeInput = document.getElementById('access-code');
+      const submitButton = document.getElementById('submit-code');
+      const errorMessage = document.getElementById('error-message');
+      const loginScreen = document.getElementById('login-screen');
+      const cvContent = document.getElementById('cv-content');
+
+      // Function to validate access code against the codes.json
+      async function validateAccessCode(code) {
+        try {
+          // Fetch the passwords.json file
+          const response = await fetch('passwords.json');
+          if (!response.ok) {
+            throw new Error('Could not fetch access codes');
+          }
+          
+          const data = await response.json();
+          
+          // Check if the entered code exists in the passwords list
+          const codeInfo = data.passwords.find(p => p.code === code);
+          
+          if (!codeInfo) {
+            return { valid: false, message: 'Invalid access code' };
+          }
+          
+          // Check if the code has expired
+          const expirationDate = new Date(codeInfo.expiration);
+          const currentDate = new Date();
+          
+          if (currentDate > expirationDate) {
+            return { valid: false, message: 'This access code has expired' };
+          }
+          
+          // Code is valid and not expired
+          return { valid: true };
+          
+        } catch (error) {
+          console.error('Error validating access code:', error);
+          return { valid: false, message: 'An error occurred while validating your access code' };
+        }
+      }
+      
+      // Function to show the CV content
+      function showCV() {
+        loginScreen.style.display = 'none';
+        cvContent.style.display = 'block';
+      }
+      
+      // Event listener for the submit button
+      submitButton.addEventListener('click', async function() {
+        const code = accessCodeInput.value.trim();
+        
+        if (!code) {
+          errorMessage.textContent = 'Please enter an access code';
+          errorMessage.style.display = 'block';
+          return;
+        }
+        
+        // Validate the access code
+        const validation = await validateAccessCode(code);
+        
+        if (validation.valid) {
+          showCV();
+        } else {
+          errorMessage.textContent = validation.message || 'Invalid access code or the code has expired';
+          errorMessage.style.display = 'block';
+        }
+      });
+      
+      // Allow submitting by pressing Enter
+      accessCodeInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+          submitButton.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
