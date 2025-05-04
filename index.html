@@ -838,7 +838,7 @@
       const cvContent = document.getElementById('cv-content');
 
       // Function to validate access code against the codes.json
-      async function validateAccessCode(code) {
+      <!-- async function validateAccessCode(code) {
         try {
           // Fetch the passwords.json file
           const response = await fetch('passwords.json');
@@ -869,6 +869,30 @@
         } catch (error) {
           console.error('Error validating access code:', error);
           return { valid: false, message: 'An error occurred while validating your access code' };
+        }
+      } -->
+
+      async function validateAccessCode(code) {
+        try {
+          const response = await fetch('/.netlify/functions/validate-password', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: code })
+          });
+          
+          if (!response.ok) {
+            throw new Error('Authentication failed');
+          }
+          
+          return await response.json();
+        } catch (error) {
+          console.error('Error validating access code:', error);
+          return { 
+            valid: false, 
+            message: 'An error occurred while validating your access code' 
+          };
         }
       }
       
