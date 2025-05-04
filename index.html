@@ -874,7 +874,7 @@
 
       async function validateAccessCode(code) {
         try {
-          const response = await fetch('/.netlify/functions/validate-password', {
+          const response = await fetch('/.netlify/functions/validate-passwords', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
