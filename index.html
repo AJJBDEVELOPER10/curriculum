@@ -838,40 +838,6 @@
       const cvContent = document.getElementById('cv-content');
 
       // Function to validate access code against the codes.json
-      <!-- async function validateAccessCode(code) {
-        try {
-          // Fetch the passwords.json file
-          const response = await fetch('passwords.json');
-          if (!response.ok) {
-            throw new Error('Could not fetch access codes');
-          }
-          
-          const data = await response.json();
-          
-          // Check if the entered code exists in the passwords list
-          const codeInfo = data.passwords.find(p => p.code === code);
-          
-          if (!codeInfo) {
-            return { valid: false, message: 'Invalid access code' };
-          }
-          
-          // Check if the code has expired
-          const expirationDate = new Date(codeInfo.expiration);
-          const currentDate = new Date();
-          
-          if (currentDate > expirationDate) {
-            return { valid: false, message: 'This access code has expired' };
-          }
-          
-          // Code is valid and not expired
-          return { valid: true };
-          
-        } catch (error) {
-          console.error('Error validating access code:', error);
-          return { valid: false, message: 'An error occurred while validating your access code' };
-        }
-      } -->
-
       async function validateAccessCode(code) {
         try {
           const response = await fetch('/.netlify/functions/validate-passwords', {
